@@ -1,0 +1,17 @@
+<div class="uf">
+
+  <div class="ufHeader">
+    <md-toolbar class="header-toolbar">
+      <span class="header-content">
+        <p class="header-name">{{header}}</p>
+      </span>
+    </md-toolbar>
+  </div>
+
+  <router-outlet (onRouteChange) = "setHeader($event)"></router-outlet>
+
+  <div class="footer">
+    <p> Copyright, University of Florida </p>
+  </div>
+
+</div>

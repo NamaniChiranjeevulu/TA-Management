@@ -1,0 +1,179 @@
+
+.wrapper{
+  position: relative;
+  padding-top: 1%;
+  padding-bottom: 140px;
+  bottom: 10%;
+  display: flex;
+}
+
+.left-side{
+  flex: 1;
+}
+.right-side{
+  flex: 1;
+}
+
+.middle{
+  flex: 5;
+}
+
+.wrapper-2{
+  display: flex;
+}
+
+.dashboard{
+  /*display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;*/
+  flex: 3;
+}
+
+.student-list{
+  flex: 1;
+  padding-bottom: 140px;
+  margin-right: 10px;
+  overflow: scroll;
+}
+
+.wrapper-3{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.ta{
+  width: 300px;
+  height: 350px;
+  flex-direction: column;
+  overflow: scroll;
+}
+
+.icons{
+  align-self: flex-end;
+  padding-right: 20px;
+  flex-direction: row;
+}
+
+
+.blocks{
+  padding:10px 5px 10px 5px;
+}
+
+.md-course{
+  height: 300px;
+  width: 250px;
+}
+
+.course-name{
+  font-size: 17px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.material-icons{
+  padding-left: 10px;
+}
+
+.md-icons{
+  color: #424242;
+}
+
+a{
+  color: #212121;
+}
+.search-input{
+  border: 2px solid #E0E0E0;
+  outline: none;
+  font: 14px Arial,Helvetica,Sans-serif;
+  color: #424242;
+  width: 200px;
+  padding: 6px 15px 6px 35px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  //text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  //-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0) inset;
+  //-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0) inset;
+  //box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+  -webkit-transition: all 0.7s ease 0s;
+  -moz-transition: all 0.7s ease 0s;
+  -o-transition: all 0.7s ease 0s;
+  transition: all 0.7s ease 0s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.student-details{
+  width:200px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  margin-bottom: 5px;
+}
+
+.student-name{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.student-info p{
+  display: inline-block;
+  vertical-align: top;
+  // margin-left: 20px;
+}
+
+.fill-space {
+  // This fills the remaining space, by using flexbox.
+  // Every toolbar row uses a flexbox row layout.
+  flex: 1 1 auto;
+}
+
+
+.badges{
+  font-size: .6875rem;
+  min-width: 18px;
+  line-height: 18px;
+  border-radius: 9px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 0 6px;
+  box-shadow: 0 0 0 1px #fff;
+  transition: all 0.2s;
+  position: absolute;
+  top: -0.5rem;
+  right: -0.875rem;
+  z-index: 1;
+}
+
+.badge-container{
+  position:relative;
+  display: inline-block;
+  //overflow-wrap: break-word;
+  //font-size:.7em;
+  top:-20px;
+  right:-1px;
+  background-color: teal;
+  //width:18px;
+  //height:18px;
+  //text-align: center;
+  //line-height:18px;
+  border-radius:70%;
+}
+
+.unread_notif{
+  position: absolute;
+  display: inline-block;
+  color: black;
+  text-align:center;
+  z-index: 11;
+}
+
+.badge-text{
+  position: relative;
+  left: 0;
+  //padding: 2px 2px 2px 2px;
+}

@@ -1,0 +1,28 @@
+<md-sidenav-container class="example-container">
+  <md-sidenav #sidenav class="example-sidenav" opened="true" disableClose="true" mode="side">
+    <nav>
+        <ul>
+          <li>
+          <header class="docs-logo">
+          <div class="image-cropper">
+          <img src="../../assets/images/taimg.jpg" class="rounded" />
+          </div>
+          <h1 class="docs-logotype md-heading" id="name">{{firstName}} <br> {{lastName}}</h1>
+          </header>
+          </li>
+          <li>
+              <a (click)="show('profile')">Profile</a>
+          </li>  
+          <li>
+              <a (click)="show('home')">Home</a>
+          </li> 
+      </ul>
+    </nav>
+      </md-sidenav>
+        <div *ngIf="isHome" item-width="80%" item-height="80%">
+            <app-studenthome></app-studenthome>   
+        </div>   
+        <div *ngIf="!isHome" item-width="80%" item-height="80%">
+            <app-studentprofile></app-studentprofile>   
+        </div> 
+</md-sidenav-container>

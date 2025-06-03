@@ -1,0 +1,108 @@
+<div class="wrapper">
+
+    <div class="left-side"></div>
+
+    <div class="middle">
+        <md-tab-group>
+            <md-tab *ngFor="let course of profCourses; let i = index" label="Course {{i + 1}}">
+                <div class="wrapper-2">
+                    <div class="dashboard" dnd-droppable="true" (onDropSuccess)="student=onItemDrop($event, i)">
+                        <br><br>
+                        <p class="course-name"><a href="#"><b><u>{{course.name}}</u></b></a></p><br><br>
+                        <p>Teaching Assistants:</p><br>
+
+                        <div class="wrapper-3">
+                            <div class="ta">
+                                <div *ngFor="let student of getTAs(i)">
+                                    <md-card *ngIf="student" class="student-details" dnd-draggable
+                                             [dragEnabled]="true"
+                                             [dragData]="student" (click)="openDialog()">
+                                        <div class="student-info">
+                                            <p>
+                                                <md-icon class="material-icons">person</md-icon>
+                                            </p>
+                                            <p style="margin-left:10px;">
+                                                <star-rating-comp [size]="'small'" [starType]="'svg'"
+                                                                  [rating]="student.InterestLevel" [staticColor]="'ok'"
+                                                                  [readOnly]="true"></star-rating-comp>
+                                            </p>
+                                            <p *ngIf="!student.isTA">
+                                                <md-icon class="material-icons" (click)="removeTA(student , i)"
+                                                         align="right">cancel
+                                                </md-icon>
+                                            </p>
+                                        </div>
+                                        <p class="student-name" style="margin-left: 5px;"
+                                           mdTooltip="{{student.FirstName}} {{student.LastName}}"
+                                           mdTooltipPosition="above">{{student.FirstName}} {{student.LastName}}</p>
+                                        <p class="student-gpa" style="margin-left: 5px;">GPA: {{student.GPA}}</p>
+                                    </md-card>
+                                </div>
+                            </div>
+
+                            <div class="icons">
+                                <span>
+                                    <md-icon id = "announcements" class="md-icons" mdTooltip="Announcement" mdTooltipPosition="above" (click) = "show(i, 'announcements')">announcement</md-icon>
+                                    <span *ngIf= "course.announcementsLength > 0" class="badge badge-container"><span class="badge-text">{{course.announcementsLength}}</span></span>
+                                    <span *ngIf= "course.announcementsLength == 0" class="material-icons"></span>
+                                </span>
+                                <span>
+                                    <md-icon id = "messages" class="md-icons" mdTooltip="Messages" mdTooltipPosition="above"(click) = "show(i, 'messages')">message</md-icon>
+                                    <span *ngIf= "course.messagesLength > 0" class="badge badge-container"><span class="badge-text">{{course.messagesLength}}</span></span>
+                                    <span *ngIf= "course.messagesLength == 0" class="material-icons"></span>
+                                </span>
+                                <span>
+                                    <md-icon id = "files" class="md-icons" mdTooltip="Files" mdTooltipPosition="above"(click) = "show(i, 'files')">folder</md-icon>
+                                    <span *ngIf= "course.filesLength > 0" class="badge badge-container"><span class="badge-text">{{course.filesLength}}</span></span>
+                                    <span *ngIf= "course.filesLength == 0" class="material-icons"></span>
+                                </span>
+                                <span>
+                                    <!--<md-icon class="md-icons material-icons" mdTooltip="Download" mdTooltipPosition="above" [mdMenuTriggerFor]="menu">file_download</md-icon>-->
+                                    <md-icon id= "download" class="md-icons material-icons" mdTooltip="Download" mdTooltipPosition="above" (click)="exportToCSV(i)">file_download</md-icon>
+                                    <span class="material-icons"></span>
+                                </span>
+                                <!--<md-menu #menu="mdMenu">
+                                    <button md-menu-item (click)="exportToCSV(i)">to CSV</button>
+                                    <button md-menu-item>to JSON</button>
+                                </md-menu>-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="student-list">
+                        <form>
+                            <md-form-field>
+                                <input class="search-input" name="search-input" mdInput placeholder="Search by name"
+                                       [(ngModel)]="search">
+                            </md-form-field>
+                        </form>
+
+                        <md-list>
+                            <div id="students" *ngFor="let student of getStudents(i)">
+                                <md-card class="student-details" dnd-draggable [dragEnabled]="isAvailable(student)"
+                                         [dragData]="student"
+                                         [ngStyle]="{backgroundColor: getColor(student)}" (click)="openDialog()">
+                                    <div class="student-info">
+                                        <p>
+                                            <md-icon class="material-icons">person</md-icon>
+                                        </p>
+                                        <p style="margin-left: 10px;">
+                                            <star-rating-comp [starType]="'svg'" [rating]="student.InterestLevel"
+                                                              [staticColor]="'ok'"
+                                                              [readOnly]="true"></star-rating-comp>
+                                        </p>
+                                    </div>
+                                    <p id="student-name" class="student-name" style="margin-left: 5px;" mdTooltip="{{student.FirstName}} {{student.LastName}}"
+                                       mdTooltipPosition="above">{{student.FirstName}} {{student.LastName}}</p>
+                                    <p class="student-gpa" style="margin-left: 5px;">GPA: {{student.GPA}}</p>
+                                </md-card>
+                            </div>
+                        </md-list>
+                    </div>
+                </div>
+            </md-tab>
+        </md-tab-group>
+    </div>
+
+    <div class="right-side"></div>
+</div>

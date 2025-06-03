@@ -1,0 +1,11 @@
+<div class="login">
+    <md-toolbar class="login-toolbar">
+        <button class="login-content first-element" md-button (click)="onClickLogin('prof')">Prof-Login</button>
+        <button class="login-content second-element" md-button (click)="onClickLogin('student')">Student-Login</button>
+        <button class="login-content third-element" md-button (click)="onClickLogin('manager')">Manager-Login</button>
+    </md-toolbar>
+</div>
+
+<div class="bg-image">  
+    <carousel [sources]="imageSources" [config]="config"></carousel>
+</div>
